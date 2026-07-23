@@ -1,0 +1,33 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-display);
+  background: var(--surface-base);
+  color: var(--text-primary-on-dark);
+  overflow-x: hidden;
+}
+h1 {
+  font-weight: var(--text-display-weight);
+  font-size: var(--text-display-size);
+  letter-spacing: var(--text-display-tracking);
+  line-height: var(--text-display-line-height);
+}
+h2 {
+  font-weight: var(--text-headline-weight);
+  font-size: var(--text-headline-size);
+  line-height: var(--text-headline-line-height);
+}
+h3 { font-weight: var(--text-title-weight); font-size: var(--text-title-size); line-height: var(--text-title-line-height); }
+h4 { font-weight: 600; font-size: 16px; }
+p { font-weight: var(--text-body-weight); font-size: var(--text-body-size); line-height: var(--text-body-line-height); }
+a { color: var(--accent-interactive); }
+a:hover { color: var(--accent-interactive-hover); }
+.kicker {
+  font-weight: var(--text-label-weight);
+  font-size: var(--text-label-size);
+  text-transform: uppercase;
+  letter-spacing: var(--text-label-tracking);
+  color: var(--text-tertiary-on-dark);
+}
+.mono { font-family: var(--font-mono); font-size: var(--text-mono-size); }
+:focus-visible { outline: 2px solid var(--accent-interactive); outline-offset: 3px; border-radius: 4px; }

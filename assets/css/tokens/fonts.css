@@ -1,0 +1,5 @@
+/* Poppins is the brand's real production font (not a substitution) — loaded via
+   Google Fonts' CSS2 API, same source the live site links, since this environment
+   can't vendor binary webfont files. Weights 300/400/600/700 match the type scale. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+/* Mono level uses 'Courier New' — a system font, no webfont required. */

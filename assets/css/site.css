@@ -1,0 +1,141 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   UrbanCore — Landing Empresa (Zoom)
+   Page-level styles. Design tokens live in tokens/*.css and are imported by
+   styles.css; this file only holds what the page itself needs — the states the
+   Claude Design runtime used to express inline (style-hover / style-active /
+   style-before) plus the reveal-on-scroll mechanics.
+   ────────────────────────────────────────────────────────────────────────── */
+
+body { margin: 0; }
+
+/* Overlays carry an inline `display:flex`, which outranks the UA sheet's
+   `[hidden] { display: none }`. Make the attribute authoritative. */
+[hidden] { display: none !important; }
+
+/* ── Keyframes ─────────────────────────────────────────────────────────── */
+@keyframes ucIconEnter { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: scale(1); } }
+@keyframes ucRotateCW  { to { transform: rotate(360deg); } }
+@keyframes ucRotateCCW { to { transform: rotate(-360deg); } }
+
+.uc-ring-outer { animation: ucRotateCW 32s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
+.uc-ring-inner { animation: ucRotateCCW 22s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
+
+/* ── Reveal on scroll ──────────────────────────────────────────────────── */
+.uc-reveal {
+  opacity: 0;
+  transform: translateY(60px) scale(0.97);
+  transition:
+    opacity 0.7s var(--ease-out) var(--uc-reveal-delay, 0s),
+    transform 0.7s var(--ease-out) var(--uc-reveal-delay, 0s),
+    border-color var(--duration-card) var(--ease-out),
+    box-shadow var(--duration-card) var(--ease-out);
+}
+.uc-reveal.is-visible { opacity: 1; transform: none; }
+
+/* ── Nav ───────────────────────────────────────────────────────────────── */
+.uc-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 18px 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  background: transparent;
+  box-shadow: none;
+  transition: background var(--duration-nav) var(--ease-out), box-shadow var(--duration-nav) var(--ease-out);
+}
+.uc-nav.is-scrolled {
+  background: var(--surface-nav-scrolled);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--border-nav-separator);
+}
+.uc2-nav-links a:hover { color: var(--text-primary-on-dark); }
+
+/* ── Buttons & links ───────────────────────────────────────────────────── */
+.uc-btn:hover {
+  background: var(--accent-interactive-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-nav);
+}
+.uc-btn:active { transform: scale(0.97); transition-duration: var(--duration-fast); }
+
+.uc-btn-primary:hover {
+  background: var(--accent-interactive-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-primary);
+}
+.uc-btn-primary:active { transform: scale(0.97); transition-duration: var(--duration-fast); }
+
+.uc-btn-cta:hover {
+  background: var(--accent-interactive-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-cta);
+}
+.uc-btn-cta:active { transform: scale(0.97); transition-duration: var(--duration-fast); }
+
+.uc-link-accent:hover { color: var(--accent-interactive-hover); }
+.uc-link-muted:hover { color: var(--text-primary-on-dark); }
+
+/* ── Service bento ─────────────────────────────────────────────────────── */
+.uc2-bento-item.is-visible:hover {
+  border-color: var(--border-featured-hover);
+  box-shadow: var(--shadow-card-lift);
+  transform: translateY(-3px);
+}
+.uc-bento-featured::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--accent-interactive);
+}
+
+/* ── Contact form ──────────────────────────────────────────────────────── */
+.uc-field::placeholder { color: var(--text-placeholder); }
+.uc-field:focus { border-bottom-color: var(--accent-interactive); }
+
+.uc-submit:hover:not(:disabled) {
+  background: var(--accent-interactive-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-primary);
+}
+.uc-submit:active:not(:disabled) { transform: scale(0.97); transition-duration: var(--duration-fast); }
+.uc-submit:disabled { opacity: 0.6; cursor: default; }
+
+/* ── FAQ ───────────────────────────────────────────────────────────────── */
+.uc-faq-chevron { transition: transform 0.25s var(--ease-out); }
+.uc-faq-item[data-open='true'] .uc-faq-chevron { transform: rotate(180deg); }
+
+/* ── WhatsApp floating action ──────────────────────────────────────────── */
+.uc-whatsapp:hover {
+  background: var(--accent-interactive-hover);
+  box-shadow: var(--shadow-glow-primary);
+  transform: translateY(-3px);
+}
+.uc-whatsapp:active { transform: scale(0.97); transition-duration: var(--duration-fast); }
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .uc-hero-canvas { display: none !important; }
+  html { scroll-behavior: auto; }
+  .uc-reveal { opacity: 1; transform: none; transition: none; }
+}
+@media (max-width: 768px) {
+  .uc2-nav-links, .uc2-nav-cta { display: none !important; }
+  .uc2-hamburger { display: flex !important; }
+}
+@media (max-width: 899px) {
+  .uc2-hero-scrim { display: none !important; }
+}
+@media (max-width: 900px) {
+  .uc2-hero-inner { padding-top: 130px !important; }
+  .uc2-bento { grid-template-columns: 1fr !important; }
+  .uc2-bento-item { grid-column: auto !important; grid-row: auto !important; }
+  .uc2-pillars { grid-template-columns: repeat(2, 1fr) !important; }
+  .uc-contact-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 700px) {
+  .uc2-valor-item { grid-template-columns: 64px 1fr !important; gap: 18px !important; }
+}
+@media (max-width: 560px) {
+  .uc2-pillars { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 480px) {
+  .uc2-hero-inner h1 { font-size: clamp(34px, 10vw, 48px) !important; }
+}

@@ -1,0 +1,42 @@
+:root {
+  --font-display: 'Poppins', sans-serif;
+  --font-mono: 'Courier New', monospace;
+
+  /* Display — hero H1 only, one per page */
+  --text-display-size: clamp(36px, 5.5vw, 58px);
+  --text-display-weight: 700;
+  --text-display-line-height: 1.12;
+  --text-display-tracking: 0.02em;
+
+  /* Headline — section titles (H2) */
+  --text-headline-size: clamp(28px, 3.5vw, 40px);
+  --text-headline-weight: 600;
+  --text-headline-line-height: 1.2;
+
+  /* Title — card/item headings (H3), always weight 600 */
+  --text-title-size: clamp(18px, 2vw, 22px);
+  --text-title-weight: 600;
+  --text-title-line-height: 1.3;
+
+  /* Body — sustained reading, weight 400 throughout */
+  --text-body-size: 15.5px;
+  --text-body-weight: 400;
+  --text-body-line-height: 1.65;
+  --text-body-mobile-floor: 14px;
+
+  /* Label / Kicker — eyebrows, field labels, metadata */
+  --text-label-size: 11px;
+  --text-label-weight: 300;
+  --text-label-tracking: 0.15em;
+
+  /* Micro — footer copyright, form error text (system/metadata, not prose) */
+  --text-micro-size: 12px;
+  --text-micro-weight: 400;
+
+  /* Mono — contact details, technical references */
+  --text-mono-size: 13px;
+  --text-mono-weight: 400;
+
+  /* Measure — the 65–75ch rule, in practice ~520–620px on this site */
+  --measure-prose: 620px;
+}

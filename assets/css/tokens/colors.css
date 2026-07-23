@@ -1,0 +1,105 @@
+:root {
+  /* ── Base palette (canonical hex — see design.json colorMeta) ── */
+  --color-tech-blue: #378add;
+  --color-tech-blue-hover: #4a9ee8;
+  --color-structural-blue: #185fa5;
+  --color-night-core: #000416;
+  --color-deep-navy: #0C1F3A;
+  --color-sky-medium: #85b7eb;
+  --color-sky-light: #b5d4f4;
+  --color-canvas-light: #F0F6FC;
+  --color-charcoal: #2e2e30;
+  --color-frost-white: #f4f8ff;
+  --color-error: #e05c5c;
+
+  /* RGB channel triples for alpha compositing: rgb(var(--rgb-x) / 0.4) */
+  --rgb-tech-blue: 55 138 221; /* @kind other */
+  --rgb-structural-blue: 24 95 165; /* @kind other */
+  --rgb-night-core: 0 4 22; /* @kind other */
+  --rgb-sky-light: 181 212 244; /* @kind other */
+  --rgb-frost-white: 244 248 255; /* @kind other */
+  --rgb-error: 224 92 92; /* @kind other */
+
+  /* ── Tonal ramps — 10 steps, 1 = darkest, 10 = lightest. Pre-generated;
+     use these for tint/shade variation instead of inventing new hex values. ── */
+  --ramp-tech-blue-1: #0a1f36;  --ramp-tech-blue-2: #0f2f54;  --ramp-tech-blue-3: #154074;
+  --ramp-tech-blue-4: #1a5296;  --ramp-tech-blue-5: #2168b8;  --ramp-tech-blue-6: #378add;
+  --ramp-tech-blue-7: #5ba3e6;  --ramp-tech-blue-8: #88bfee;  --ramp-tech-blue-9: #b5d9f6;
+  --ramp-tech-blue-10: #e0f0fb;
+
+  --ramp-structural-blue-1: #081830; --ramp-structural-blue-2: #0c2448; --ramp-structural-blue-3: #113468;
+  --ramp-structural-blue-4: #15478a; --ramp-structural-blue-5: #185fa5; --ramp-structural-blue-6: #2b78c0;
+  --ramp-structural-blue-7: #5296d1; --ramp-structural-blue-8: #7eb5e1; --ramp-structural-blue-9: #aed0ef;
+  --ramp-structural-blue-10: #d8ecfa;
+
+  --ramp-night-core-1: #000416; --ramp-night-core-2: #000822; --ramp-night-core-3: #000c30;
+  --ramp-night-core-4: #001040; --ramp-night-core-5: #001854; --ramp-night-core-6: #002268;
+  --ramp-night-core-7: #0a3280; --ramp-night-core-8: #1a4898; --ramp-night-core-9: #3060b0;
+  --ramp-night-core-10: #4878c8;
+
+  --ramp-deep-navy-1: #060f1c; --ramp-deep-navy-2: #0c1f3a; --ramp-deep-navy-3: #102a50;
+  --ramp-deep-navy-4: #153568; --ramp-deep-navy-5: #1a4080; --ramp-deep-navy-6: #224e9a;
+  --ramp-deep-navy-7: #3866b2; --ramp-deep-navy-8: #5882c8; --ramp-deep-navy-9: #7ea0da;
+  --ramp-deep-navy-10: #a8c0ec;
+
+  --ramp-sky-medium-1: #1a3860; --ramp-sky-medium-2: #264e7e; --ramp-sky-medium-3: #32649e;
+  --ramp-sky-medium-4: #427cbf; --ramp-sky-medium-5: #5a96d8; --ramp-sky-medium-6: #85b7eb;
+  --ramp-sky-medium-7: #a2c9f2; --ramp-sky-medium-8: #bdd9f6; --ramp-sky-medium-9: #d6ebfa;
+  --ramp-sky-medium-10: #edf5fd;
+
+  --ramp-sky-light-1: #243e58; --ramp-sky-light-2: #305472; --ramp-sky-light-3: #3e6c8e;
+  --ramp-sky-light-4: #5084aa; --ramp-sky-light-5: #7aaace; --ramp-sky-light-6: #b5d4f4;
+  --ramp-sky-light-7: #c8dff7; --ramp-sky-light-8: #d9ebfa; --ramp-sky-light-9: #ecf4fd;
+  --ramp-sky-light-10: #f6faff;
+
+  --ramp-canvas-light-1: #c0d8f0; --ramp-canvas-light-2: #cce0f5; --ramp-canvas-light-3: #d6e8f8;
+  --ramp-canvas-light-4: #e0eefa; --ramp-canvas-light-5: #e8f3fb; --ramp-canvas-light-6: #F0F6FC;
+  --ramp-canvas-light-7: #f4f9fd; --ramp-canvas-light-8: #f8fbfe; --ramp-canvas-light-9: #fbfdff;
+  --ramp-canvas-light-10: #fdfeff;
+
+  --ramp-charcoal-1: #121214; --ramp-charcoal-2: #1a1a1c; --ramp-charcoal-3: #222224;
+  --ramp-charcoal-4: #2e2e30; --ramp-charcoal-5: #3c3c3e; --ramp-charcoal-6: #4a4a4c;
+  --ramp-charcoal-7: #5e5e60; --ramp-charcoal-8: #787878; --ramp-charcoal-9: #989898;
+  --ramp-charcoal-10: #bcbcbc;
+
+  --ramp-frost-white-1: #c0cce0; --ramp-frost-white-2: #ccd6e8; --ramp-frost-white-3: #d8e2f0;
+  --ramp-frost-white-4: #e2ecf8; --ramp-frost-white-5: #ebf2fc; --ramp-frost-white-6: #f4f8ff;
+  --ramp-frost-white-7: #f6faff; --ramp-frost-white-8: #f8fbff; --ramp-frost-white-9: #fafcff;
+  --ramp-frost-white-10: #fcfeff;
+
+  /* ── Semantic aliases ── */
+  --surface-base: var(--color-night-core);
+  --surface-elevated: var(--color-deep-navy);
+  --surface-light: var(--color-canvas-light);
+  --surface-input: rgb(var(--rgb-night-core) / 0.5);
+  --surface-input-focus: rgb(var(--rgb-night-core) / 0.7);
+  --surface-nav-scrolled: rgb(var(--rgb-night-core) / 0.9);
+  --surface-overlay-scrim: rgb(var(--rgb-night-core) / 0.97);
+  --surface-badge: rgb(var(--rgb-tech-blue) / 0.1);
+
+  --text-primary-on-dark: var(--color-frost-white);
+  --text-secondary-on-dark: var(--color-sky-light);
+  --text-tertiary-on-dark: var(--color-sky-medium);
+  --text-primary-on-light: var(--color-charcoal);
+  --text-placeholder: rgb(var(--rgb-sky-light) / 0.3);
+  --text-copyright: rgb(var(--rgb-sky-light) / 0.65);
+
+  --accent-interactive: var(--color-tech-blue);
+  --accent-interactive-hover: var(--color-tech-blue-hover);
+  --accent-structural: var(--color-structural-blue);
+
+  --border-structural: rgb(var(--rgb-structural-blue) / 0.2);       /* valor-statement rule, rest */
+  --border-structural-subtle: rgb(var(--rgb-structural-blue) / 0.15); /* si-item / pilar dividers */
+  --border-input: rgb(var(--rgb-structural-blue) / 0.28);
+  --border-outline-button: rgb(var(--rgb-frost-white) / 0.3);
+  --border-nav-separator: rgb(var(--rgb-tech-blue) / 0.1);
+  --border-footer-separator: rgb(var(--rgb-structural-blue) / 0.1);
+  --border-badge: rgb(var(--rgb-tech-blue) / 0.25);
+  --border-featured-rest: rgb(var(--rgb-tech-blue) / 0.2);
+  --border-featured-hover: rgb(var(--rgb-tech-blue) / 0.45);
+  --border-valor-hover: rgb(var(--rgb-tech-blue) / 0.4);
+  --border-si-hover: rgb(var(--rgb-tech-blue) / 0.35);
+
+  --color-error-border: rgb(var(--rgb-error) / 0.6);
+  --color-error-text: rgb(var(--rgb-error) / 1);
+}

@@ -1,0 +1,23 @@
+/* Only transform + opacity animate — never layout properties (gap/padding/
+   width/height/margin). No bounce or elastic easing; everything decelerates. */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-linear: linear; /* @kind other */
+
+  /* :active press-in snap */
+  --duration-fast: 120ms; /* @kind other */
+  /* standard hover/state transitions */
+  --duration-ui: 200ms; /* @kind other */
+  /* nav scroll background/blur transition */
+  --duration-nav: 350ms; /* @kind other */
+  /* featured-card hover transition */
+  --duration-card: 250ms; /* @kind other */
+  /* scroll-triggered fade-up entrance */
+  --duration-reveal: 420ms; /* @kind other */
+  /* orbital icon page-load entrance, once per session */
+  --duration-entrance: 750ms; /* @kind other */
+
+  /* Signature orbital icon — ambient, constant-speed, exempt from reduced-motion */
+  --duration-ring-outer: 32s; /* @kind other */
+  --duration-ring-inner: 22s; /* @kind other */
+}
