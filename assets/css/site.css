@@ -138,7 +138,10 @@ body { margin: 0; }
   .uc2-hero-scrim { display: none !important; }
 }
 @media (max-width: 900px) {
-  .uc2-hero-inner { padding-top: 130px !important; }
+  .uc2-hero-inner, .uc-404-inner { padding-top: 130px !important; }
+  /* Sin el scrim (oculto <900px) el orbital compite con el texto de la 404,
+     que es justo el que la persona necesita leer. Pasa a textura de fondo. */
+  .uc-404-orbit { opacity: 0.3; }
   .uc2-bento { grid-template-columns: 1fr !important; }
   .uc2-bento-item { grid-column: auto !important; grid-row: auto !important; }
   .uc2-pillars { grid-template-columns: repeat(2, 1fr) !important; }
